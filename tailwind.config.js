@@ -6,8 +6,15 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        'montserrat': ['Montserrat', 'Verdana', 'Roboto', 'Helvetica']
+      },
       colors: {
-        'lemon': '#84BD00'
+        'lemon': '#84BD00',
+        'lemon-200': '#C4D600'
+      },
+      width: {
+        '101': '28rem',
       }
     },
   },

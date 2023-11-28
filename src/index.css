@@ -1,3 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap');
+
+h1 {
+  @apply text-4xl font-bold text-gray-800 mb-4;
+}
+
+h2 {
+  @apply text-3xl font-semibold text-gray-700 mb-3;
+}
+
+h3 {
+  @apply text-2xl font-semibold text-gray-700 mb-2;
+}
+
+h4 {
+  @apply text-xl font-semibold text-gray-700 mb-2;
+}
+
+h5 {
+  @apply text-lg font-semibold text-gray-700 mb-1;
+}
+
+h6 {
+  @apply text-base font-semibold text-gray-700 mb-1;
+}
+
+p {
+  @apply text-base text-gray-700 leading-normal mb-4;
+}
+
+span {
+  @apply text-base text-gray-700;
+}
+
+@layer components {
+    .border-animation {
+        position: relative;
+        overflow: hidden;
+        transition: height 0.3s ease;
+      }
+  
+      .border-animation:before,
+      .border-animation:after {
+        content: '';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 2px;
+        background-color: #84BD00;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+  
+      .border-animation:hover:before,
+      .border-animation:hover:after {
+        transform: scaleX(1);
+        transform-origin: right;
+      }
+}

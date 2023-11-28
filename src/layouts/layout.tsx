@@ -1,6 +1,7 @@
 import React,  { ReactNode } from 'react';
 import Banner from "../components/banner/banner";
-import Navbar from "../components/nav/navbar";
+import Navbar from "../components/header/navbar";
+import Footer from '../components/footer/Footer';
 
 interface LayoutProps {
     children: ReactNode;
@@ -13,6 +14,7 @@ const Layout: React.FC<LayoutProps> = ({ children, showBanner = true }) => {
             <Navbar />
             { showBanner &&  <Banner /> }
             { children }
+            <Footer />
         </section >
     )
 }
