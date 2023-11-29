@@ -1,82 +1,35 @@
 import React, { useState } from 'react';
 import RecipeCard from "../shared/RecipesCard";
 import { RecipeInterface } from "../utils/RecipeInterface"
+import recipes from '../mock/recipe.json'
 
-const recipes: RecipeInterface[] = [
-    {
-        'name': 'Easy Chicken Shawarma',
-        'image': 'https://www.thechunkychef.com/wp-content/uploads/2021/03/Chicken-Shawarma-recipe-card.jpg',
-        'description':'This easy, healthy homemade chicken shawarma is a huge fan-favorite around here, for good reason!',
-        'date': new Date(new Date('2015-03-25')),
-        'duration': 6,
-        'category': 'Caribbean',
-    },
-    {
-        'name': 'Efo Riro',
-        'image': 'https://www.mydiasporakitchen.com/wp-content/uploads/2017/12/img_2573.jpg',
-        'description':'Efo riro also Nigerian spinach stew is a delicious Nigerian vegetable soup recipe that’s unbelievably easy to make',
-        'date': new Date('2015-03-23'),
-        'duration': 3,
-        'category': 'African'
-    },
-    {
-        'name': 'Ofada Rice and Sauce',
-        'image': 'https://img-global.cpcdn.com/recipes/26f258e620b7534d/680x482cq70/ofada-rice-and-sauce-recipe-main-photo.jpg',
-        'description':'',
-        'date': new Date('2015-03-23'),
-        'duration': 3,
-        'category': 'African'
-    },
-    {
-        'name': 'Best View in Newyork City',
-        'image': 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500',
-        'description':'',
-        'date': new Date('2015-03-23'),
-        'duration': 3,
-        'category': 'African'
-    },
-    {
-        'name': 'Best View in Newyork City',
-        'image': 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500',
-        'description':'',
-        'date': new Date('2023-05-01'),
-        'duration': 5,
-        'category': 'African'
-    },
-    {
-        'name': 'Best View in Newyork City',
-        'image': 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500',
-        'description':'',
-        'date': new Date('2022-08-13'),
-        'duration': 10,
-        'category': 'African'
-    },
-    {
-        'name': 'Best View in Newyork City',
-        'image': 'https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500',
-        'description':'',
-        'date': new Date('2015-03-23'),
-        'duration': 3,
-        'category': 'African'
-    }
-];
-
-const Recipes: React.FC<RecipeInterface[]> = () => {
+const Recipes: React.FC<RecipeInterface> = () => {
     
     const recipesPerPage = 6;
     const [currentPage, setCurrentPage] = useState(1);
+    const [selectedCuisine, setSelectedCuisine] = useState('All Categories');
+
     const indexOfLastRecipe = currentPage * recipesPerPage;
     const indexOfFirstRecipe = indexOfLastRecipe - recipesPerPage;
-    const currentRecipes = recipes.slice(indexOfFirstRecipe, indexOfLastRecipe);
+    const filteredRecipes = selectedCuisine === 'All Categories'
+        ? recipes.slice(indexOfFirstRecipe, indexOfLastRecipe)
+        : recipes.filter(recipe => recipe.cuisine === selectedCuisine).slice(indexOfFirstRecipe, indexOfLastRecipe);
+
+    const totalPages = Math.ceil(recipes.filter(recipe => selectedCuisine === 'All Categories' || recipe.cuisine === selectedCuisine).length / recipesPerPage);
 
     const paginate = (page: number) => {
-        setCurrentPage(page);
+        setCurrentPage(page > totalPages ? totalPages : page);
+    }
+
+    const handleCuisineChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
+        setSelectedCuisine(event.target.value);
+        setCurrentPage(1); // Reset page when changing cuisine
     }
 
     return(
-        <main className="mt-24 p-20">
-            <section>
-                <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
+        <main className="py-20">
+            <section className="m-5">
+                <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-10">
                     <h1>Latest Recipes</h1>
                     <p>
                         It's not only possible to eat healthy food that also tastes amazing, it's actually easier than you think. 
@@ -85,44 +38,120 @@ const Recipes: React.FC<RecipeInterface[]> = () => {
                     </p>
                 </div>
             </section>
-
-            <section className="flex flex-wrap m-5">
-
-                <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-                    <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
+            <section className="flex flex-wrap">
+                <div className="max-w-screen-xl mx-auto px-5 sm:px-10 md:px-16">
+                    <div className="my-5">
+                        <select 
+                            id="cuisine-select" 
+                            className="bg-transparent border rounded-lg p-2 outline-0"
+                            onChange={handleCuisineChange}
+                            value={selectedCuisine}
+                        >
+                            <optgroup label="All Categories">
+                                <option>All Categories</option>
+                            </optgroup>
+                            <optgroup label="African Cuisine">
+                                <option>West African</option>
+                                <option>North African</option>
+                                <option>East African</option>
+                                <option>Southern African</option>
+                                <option>Central African</option>
+                            </optgroup>
+                            <optgroup label="Asian Cuisine">
+                                <optgroup label="East Asian">
+                                    <option>Chinese</option>
+                                    <option>Japanese</option>
+                                    <option>Korean</option>
+                                </optgroup>
+                                <optgroup label="Southeast Asian">
+                                    <option>Thai</option>
+                                    <option>Vietnamese</option>
+                                    <option>Malaysian</option>
+                                    <option>Indonesian</option>
+                                </optgroup>
+                                <optgroup label="South Asian">
+                                    <option>Indian</option>
+                                    <option>Pakistani</option>
+                                    <option>Bangladeshi</option>
+                                </optgroup>
+                            </optgroup>
+                            <optgroup label="European Cuisine">
+                                <option>Italian</option>
+                                <option>French</option>
+                                <option>German</option>
+                                <option>Spanish</option>
+                                <option>Greek</option>
+                            </optgroup>
+                            <optgroup label="Middle Eastern Cuisine">
+                                <option>Arabian</option>
+                                <option>Israeli</option>
+                                <option>Persian</option>
+                                <option>Turkish</option>
+                            </optgroup>
+                            <optgroup label="North American Cuisine">
+                                <option>American</option>
+                                <option>Canadian</option>
+                                <option>Mexican</option>
+                            </optgroup>
+                            <optgroup label="Latin American Cuisine">
+                                <option>Mexican</option>
+                                <option>Brazilian</option>
+                                <option>Argentinian</option>
+                                <option>Peruvian</option>
+                            </optgroup>
+                            <optgroup label="Caribbean Cuisine">
+                                <option>Jamaican</option>
+                                <option>Cuban</option>
+                                <option>Haitian</option>
+                                <option>Trinidadian</option>
+                            </optgroup>
+                            <optgroup label="Oceanian Cuisine">
+                                <option>Australian</option>
+                                <option>New Zealand</option>
+                                <option>Polynesian</option>
+                                <option>Micronesian</option>
+                            </optgroup>
+                            <optgroup label="Scandinavian Cuisine">
+                                <option>Swedish</option>
+                                <option>Norwegian</option>
+                                <option>Danish</option>
+                                <option>Finnish</option>
+                            </optgroup>    
                         
-                        {
-                            currentRecipes.map((element: RecipeInterface, index: number) => (
-                            
-                            <RecipeCard 
-                                    key= {index}
-                                    image = {element.image}
-                                    name = {element.name}
-                                    description= {element.description}
-                                    date={element.date}
-                                    duration={element.duration}
-                                    category={element.category}
-                            />
-                            ))
-                        }
+                        </select>
                     </div>
-                    <div className="flex justify-center mt-5">
-                        {Array.from({ length: Math.ceil(recipes.length / recipesPerPage) }, (_, index) => (
-                            <button
+                    <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">  
+                        {filteredRecipes.map((element: RecipeInterface, index: number) => (    
+                            <RecipeCard
+                                id={element.id} 
                                 key={index}
-                                className={`mx-2 px-3 py-2 rounded-md ${currentPage === index + 1 ? 'bg-gray-700 text-white' : 'bg-gray-300 text-gray-700'}`}
-                                onClick={() => paginate(index + 1)}
-                            >
-                                {index + 1}
-                            </button>
-                            ))
-                        }
-
+                                image={element.image}
+                                name={element.name}
+                                description={element.description}
+                                date={element.date}
+                                duration={element.duration}
+                                category={element.category}
+                                cuisine={element.cuisine}
+                            />
+                        ))}
                     </div>
+                    {totalPages > 1 && (
+                        <div className="flex justify-center my-10">
+                            {Array.from({ length: totalPages }, (_, index) => (
+                                <button
+                                    key={index}
+                                    className={`w-10 h-10 mx-2 px-3 py-2 rounded-md ${currentPage === index + 1 ? 'bg-lemon text-white' : 'bg-gray-300 text-gray-700'}`}
+                                    onClick={() => paginate(index + 1)}
+                                >
+                                    {index + 1}
+                                </button>
+                            ))}
+                        </div>
+                    )}
                 </div>
             </section>
         </main>
     )
 }
 
-export default Recipes
+export default Recipes;

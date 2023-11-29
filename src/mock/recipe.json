@@ -1,0 +1,73 @@
+[
+    {
+      "id": 1,
+      "name": "Easy Chicken Shawarma",
+      "image": "https://www.thechunkychef.com/wp-content/uploads/2021/03/Chicken-Shawarma-recipe-card.jpg",
+      "description": "This easy, healthy homemade chicken shawarma is a huge fan-favorite around here, for good reason!",
+      "date": "2015-03-25",
+      "duration": 6,
+      "category": "Middle Eastern Cuisine",
+      "cuisine": "Turkish"
+    },
+    {
+      "id": 2,
+      "name": "Efo Riro",
+      "image": "https://www.mydiasporakitchen.com/wp-content/uploads/2017/12/img_2573.jpg",
+      "description": "Efo riro also Nigerian spinach stew is a delicious Nigerian vegetable soup recipe that’s unbelievably easy to make",
+      "date": "2015-03-23",
+      "duration": 3,
+      "category": "African Cuisine",
+      "cuisine": "West African"
+    },
+    {
+      "id": 3,
+      "name": "Ofada Rice and Sauce",
+      "image": "https://img-global.cpcdn.com/recipes/26f258e620b7534d/680x482cq70/ofada-rice-and-sauce-recipe-main-photo.jpg",
+      "description": "",
+      "date": "2015-03-23",
+      "duration": 3,
+      "category": "African Cuisine",
+      "cuisine": "West African"
+    },
+    {
+      "id": 4,
+      "name": "Best View in Newyork City",
+      "image": "https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500",
+      "description": "",
+      "date": "2015-03-23",
+      "duration": 3,
+      "category": "African",
+      "cuisine": "Turkish"
+    },
+    {
+      "id": 5,
+      "name": "Best View in Newyork City",
+      "image": "https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500",
+      "description": "",
+      "date": "2022-05-01",
+      "duration": 5,
+      "category": "African",
+      "cuisine": "Turkish"
+    },
+    {
+      "id": 6,
+      "name": "Best View in Newyork City",
+      "image": "https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500",
+      "description": "",
+      "date": "2011-08-13",
+      "duration": 10,
+      "category": "African",
+      "cuisine": "Turkish"
+    },
+    {
+      "id": 7,
+      "name": "Best View in Newyork City",
+      "image": "https://images.pexels.com/photos/196667/pexels-photo-196667.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=1&amp;w=500",
+      "description": "",
+      "date": "2015-03-23",
+      "duration": 3,
+      "category": "African",
+      "cuisine": "Turkish"
+    }
+  ]
+  

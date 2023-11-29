@@ -1,8 +1,10 @@
 export interface RecipeInterface {
-    name: string;
-    image: string;
-    description: string;
-    date: Date;
-    duration: number;
-    category: string;
+    id?: number;
+    name?: string;
+    image?: string;
+    description?: string;
+    date?: Date | string;
+    duration?: number;
+    category?: string;
+    cuisine?: string;
 }

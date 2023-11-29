@@ -9,6 +9,7 @@ import About from "../pages/about";
 import Recipes from "../pages/recipes";
 import Services from "../pages/services";
 import Contact from "../pages/contact";
+import Recipe from "../pages/recipe";
 
 
 const AppRoutes: React.FC = () => {
@@ -23,6 +24,7 @@ const AppRoutes: React.FC = () => {
             <Route path="/recipes" element={<Recipes />} />
             <Route path="/services" element={<Services />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/recipe/:id" element={<Recipe />} />
         </Routes>
         </Layout>
     );

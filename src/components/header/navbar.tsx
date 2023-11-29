@@ -40,20 +40,77 @@ const Navbar = () => {
                     </Link>
                    
                     <div className="seach flex gap-5 bg-stone-100 border border-1 rounded-lg h-8 w-64 md:w-72 lg:w-96 ">
-                        <select id="dino-select" className="bg-transparent rounded-lg px-5 outline-0">
+                        <select id="cuisine-select" className="bg-transparent rounded-lg px-5 outline-0">
                             <optgroup label="All Categories">
-                                <option >All Categories</option>
+                                <option>All Categories</option>
                             </optgroup>
-                            <optgroup label="African">
-                                <option>Diplodocus</option>
-                                <option>Saltasaurus</option>
-                                <option>Apatosaurus</option>
+                            <optgroup label="African Cuisine">
+                                <option>West African</option>
+                                <option>North African</option>
+                                <option>East African</option>
+                                <option>Southern African</option>
+                                <option>Central African</option>
                             </optgroup>
-                            <optgroup label="Intercontinental">
-                                <option>Diplodocus</option>
-                                <option>Saltasaurus</option>
-                                <option>Apatosaurus</option>
+                            <optgroup label="Asian Cuisine">
+                                <optgroup label="East Asian">
+                                    <option>Chinese</option>
+                                    <option>Japanese</option>
+                                    <option>Korean</option>
+                                </optgroup>
+                                <optgroup label="Southeast Asian">
+                                    <option>Thai</option>
+                                    <option>Vietnamese</option>
+                                    <option>Malaysian</option>
+                                    <option>Indonesian</option>
+                                </optgroup>
+                                <optgroup label="South Asian">
+                                    <option>Indian</option>
+                                    <option>Pakistani</option>
+                                    <option>Bangladeshi</option>
+                                </optgroup>
                             </optgroup>
+                            <optgroup label="European Cuisine">
+                                <option>Italian</option>
+                                <option>French</option>
+                                <option>German</option>
+                                <option>Spanish</option>
+                                <option>Greek</option>
+                            </optgroup>
+                            <optgroup label="Middle Eastern Cuisine">
+                                <option>Arabian</option>
+                                <option>Israeli</option>
+                                <option>Persian</option>
+                                <option>Turkish</option>
+                            </optgroup>
+                            <optgroup label="North American Cuisine">
+                                <option>American</option>
+                                <option>Canadian</option>
+                                <option>Mexican</option>
+                            </optgroup>
+                            <optgroup label="Latin American Cuisine">
+                                <option>Mexican</option>
+                                <option>Brazilian</option>
+                                <option>Argentinian</option>
+                                <option>Peruvian</option>
+                            </optgroup>
+                            <optgroup label="Caribbean Cuisine">
+                                <option>Jamaican</option>
+                                <option>Cuban</option>
+                                <option>Haitian</option>
+                                <option>Trinidadian</option>
+                            </optgroup>
+                            <optgroup label="Oceanian Cuisine">
+                                <option>Australian</option>
+                                <option>New Zealand</option>
+                                <option>Polynesian</option>
+                                <option>Micronesian</option>
+                            </optgroup>
+                            <optgroup label="Scandinavian Cuisine">
+                                <option>Swedish</option>
+                                <option>Norwegian</option>
+                                <option>Danish</option>
+                                <option>Finnish</option>
+                            </optgroup>    
                         </select>
                         <input className="bg-transparent outline-0" type="search" placeholder="Search" name="search" />   
                     </div>
