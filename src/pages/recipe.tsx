@@ -29,8 +29,8 @@ const Recipe: React.FC = () => {
             <div className="max-w-screen-xl mx-auto px-5 sm:px-10 md:px-16">
                 { recipe && (
                     <>
-                        <h2>{recipe.name}</h2>
                         <img src={recipe.image} alt={recipe.name} />
+                        <h2>{recipe.name} | {recipe.cuisine}</h2>
                         <p>{recipe.description}</p>
                     </>
                 )}
