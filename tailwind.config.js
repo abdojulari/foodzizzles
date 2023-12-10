@@ -15,6 +15,9 @@ export default {
       },
       width: {
         '101': '28rem',
+      }, 
+      backgroundImage: {
+        'recipe': "url('../public/recipeBlob.svg')"
       }
     },
   },

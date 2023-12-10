@@ -8,3 +8,10 @@ export interface RecipeInterface {
     category?: string;
     cuisine?: string;
 }
+
+export interface AdditionalDetails {
+    id?: number;
+    recipeId?: number;
+    description?: string;
+    image?: string[];
+}

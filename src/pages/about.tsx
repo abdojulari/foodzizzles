@@ -8,7 +8,8 @@ const About = () => {
                 <div className="grid items-center grid-cols-1 md:grid-cols-2">
                     <div>
                         <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">It's 
-                            <br className="block sm:hidden" /> Foodzizzles
+                            <br className="block sm:hidden" /> 
+                            <span className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl animate-pulse bg-gradient-to-r from-pink-500 via-green-500 to-violet-500 bg-clip-text text-transparent">Foodzizzles</span>
                         </h2>
                         <p className="max-w-lg mt-3 leading-relaxed md:mt-8">
                         I'm so happy you're here! I'm Azeezah, [links to your books] author and lead recipe developer here at Foodzizzles. I started Foodzizzles with just one goal in mind, making healthy eating delicious and easy.
