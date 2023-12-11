@@ -1,0 +1,74 @@
+[
+    {
+        "remarks": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi felis mi, faucibus dignissim lorem id, imperdiet interdum mauris. Vestibulum ultrices sed libero non porta. Vivamus malesuada urna eu nibh malesuada, non finibus massa laoreet. Nunc nisi velit, feugiat a semper quis, pulvinar id libero. Vivamus mi diam, consectetur non orci ut, tincidunt pretium justo. In vehicula porta molestie. Suspendisse potenti.",
+        "popularCourses": [
+            {
+                "title": "Popular Courses",
+                "courses": [
+                    {
+                        "title": "Baking",
+                        "url": "http://"
+                    },
+                    {
+                        "title": "Cookies",
+                        "url": "http://"
+                    },
+                    {
+                        "title": "Meal",
+                        "url": "http://"
+                    } 
+                ]
+            },
+            {
+                "title": "Popular Topics",
+                "courses": [
+                    {
+                        "title": "Baking without oven",
+                        "url": "http://"
+                    },
+                    {
+                        "title": "Scretes to the best cooking",
+                        "url": "http://"
+                    },
+                    {
+                        "title": "Homemade buttered bread",
+                        "url": "http://"
+                    } 
+                ]
+            }
+
+        ],
+        "socials": [
+            {
+                "heading": "Foodzizzles is also available on",
+                "links": [ 
+                    {
+                        "icon": "https://cdn.iconscout.com/icon/free/png-256/free-twitter-9420782-7651212.png",
+                        "url": "http://",
+                        "alt": "x icon"
+                    },
+                    {
+                        "icon": "https://freelogopng.com/images/all_img/1692799072facebook-icon-transparent.png",
+                        "url": "http://",
+                        "alt": "facebook icon"
+                    },
+                    {
+                        "icon": "https://cdn-icons-png.flaticon.com/512/3015/3015800.png",
+                        "url": "http://",
+                        "alt": "youtube icon"
+                    },
+                    {
+                        "icon": "https://cdn-icons-png.flaticon.com/256/1409/1409946.png",
+                        "url": "http://",
+                        "alt": "instagram icon"
+                    } 
+                ]
+            }
+        ],
+        "contacts" : {
+                "heading": "Contacts",
+                "label": "Email:",
+                "email": "admin@foodzizzles.com"
+        }    
+    }
+]

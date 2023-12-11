@@ -36,21 +36,20 @@ const Recipe: React.FC = () => {
       <section className="flex flex-wrap my-20">
             <div className="max-w-screen-xl mx-auto px-5 sm:px-10 md:px-16">
                 { recipe && (
-                    <div className="flex flex-col">
-                        <div className="flex p-5">
-                            <div className="md:w-1/2 mb-6 md:mb-0">
-                              <img className="w-full h-96 object-cover rounded-lg shadow-md" 
-                                  src={recipe.image} 
-                                  alt={recipe.name} 
-                              />
-                            </div>
-                            <div className="md:w-1/2 md:ml-6">
-                                <h1 className="text-2xl text-lemon">{recipe.name} | {recipe.cuisine}</h1>
-                                <p>{recipe.description}</p>
-                            </div>
-                        </div>
-                        
+                  <div className="flex flex-col md:flex-row p-5">
+                    <div className="md:w-1/2 mb-6 md:mb-0">
+                      <img
+                        className="w-full h-96 object-cover rounded-lg shadow-md"
+                        src={recipe.image}
+                        alt={recipe.name}
+                      />
                     </div>
+                    <div className="md:w-1/2 md:ml-6">
+                      <h1 className="text-2xl text-lemon">{recipe.name} | {recipe.cuisine}</h1>
+                      <p>{recipe.description}</p>
+                    </div>
+                  </div>
+                  
                 )}
             </div>
       </section>
