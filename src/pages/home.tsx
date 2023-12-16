@@ -1,7 +1,7 @@
 const Home = () => {
     return(
-        <main className="p-20">
-            <article className="flex">
+        <main className="py-20">
+            <article className="flex px-20">
                 <aside className="w-1/5 m-5 "> Sidebar</aside>
                 <section className="flex flex-wrap w-4/5 m-5">
                     <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">

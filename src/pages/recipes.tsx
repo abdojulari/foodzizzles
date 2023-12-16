@@ -28,7 +28,7 @@ const Recipes: React.FC<RecipeInterface> = () => {
 
     return(
         <main className="py-20">
-            <section className="m-5">
+            <section className="mt-20">
                 <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-10">
                     <h1>Latest Recipes</h1>
                     <p>
@@ -39,7 +39,7 @@ const Recipes: React.FC<RecipeInterface> = () => {
                 </div>
             </section>
             <section className="flex flex-wrap">
-                <div className="max-w-screen-xl mx-auto px-5 sm:px-10 md:px-16">
+                <div className="max-w-screen-xl mx-auto px-5 sm:px-10 md:px-10">
                     <div className="my-5">
                         <select 
                             id="cuisine-select" 

@@ -2,7 +2,7 @@ import blob from '../assets/blob.svg';
 
 const About = () => {
   return (
-    <main className="mt-24 text-gray-700 ">
+    <main className="mt-[12rem] text-gray-700 ">
         <section className="pt-16 overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row">
                 <div className="grid items-center grid-cols-1 md:grid-cols-2">

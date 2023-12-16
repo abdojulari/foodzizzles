@@ -32,7 +32,7 @@ const Recipe: React.FC = () => {
   if (error) return 'An error has occurred: ' + error.message;
 
   return (
-    <main className="mt-20 bg-gray-100">
+    <main className="mt-[8rem] bg-gray-100">
       <section className="flex flex-wrap my-20">
             <div className="max-w-screen-xl mx-auto px-5 sm:px-10 md:px-16">
                 { recipe && (
@@ -54,7 +54,7 @@ const Recipe: React.FC = () => {
             </div>
       </section>
       <section className="bg-white">
-          <div className="container flex items-center justify-center mx-auto px-5 py-20">
+          <div className="container flex items-center justify-center mx-auto p-20">
                 {data && (
                   <div>
                     {data.map((item, index) => (

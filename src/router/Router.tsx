@@ -7,9 +7,10 @@ import Layout from "../layouts/layout";
 import Home from "../pages/home";
 import About from "../pages/about";
 import Recipes from "../pages/recipes";
-import Services from "../pages/services";
+import Shop from "../pages/shop";
 import Contact from "../pages/contact";
 import Recipe from "../pages/recipe";
+import CookBooks from "../pages/cookBooks";
 
 
 const AppRoutes: React.FC = () => {
@@ -22,7 +23,8 @@ const AppRoutes: React.FC = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/recipes" element={<Recipes />} />
-            <Route path="/services" element={<Services />} />
+            <Route path="/shop" element={<Shop />} />
+            <Route path="/cookbooks" element={<CookBooks />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/recipe/:id" element={<Recipe />} />
         </Routes>

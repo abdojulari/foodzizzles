@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link} from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import NavigationItem from "../../shared/Navigation";
 
 const Navbar = () => {
@@ -15,15 +15,18 @@ const Navbar = () => {
     const navigationItems = [
         { to: "/about", label: "About" },
         { to: "/recipes", label: "Recipes" },
-        { to: "/cookbook", label: "Cookbook" },
+        { to: "/cookbooks", label: "Cookbook" },
         { to: "/shop", label: "Shop" },
         { to: "/contact", label: "Contact" },
-      ];
+    ];
+
+    const location = useLocation();
+    const isActive = (targetPath: string): boolean => (location.pathname === targetPath);
 
     return (
         <header className="font-montserrat text-gray-700 leading-normal">
             <nav className=" flex flex-col bg-white dark:bg-gray-900 fixed w-full z-20 top-0 start-0 shadow-2xl shadow-gray-400/20">
-                <div className="top-nav h-8 bg-gray-900 text-white px-10 flex items-center">
+                <div className="top-nav h-16 bg-gray-900 text-white px-10 flex items-center">
                     <ul className="nav-bar-item flex flex-row gap-8 items-center">
                         <li className="nav-link hover:text-lemon">
                             <Link to="/#" >Watch</Link>
@@ -34,7 +37,7 @@ const Navbar = () => {
                     </ul>
                 </div>
         
-                <div className="max-w-screen-xl flex flex-wrap items-center justify-between py-4 px-10">
+                <div className="max-w-screen-xl h-20 flex flex-wrap items-center justify-between py-4 px-10">
                     <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
                         Foodzizzles
                     </Link>
@@ -116,14 +119,18 @@ const Navbar = () => {
                     </div>
                     <div className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-sticky">
                         <ul className="flex flex-col justify-items-end p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"> 
-                            {navigationItems.map((item) => (
+                            {navigationItems.map((item) => {
+                                       const itemIsActive = isActive(item.to)
+                                       console.log(`Is "${item.label}" active? ${itemIsActive}`);
+                               return (
                                 <NavigationItem
                                 key={item.to}
                                 to={item.to}
                                 label={item.label}
-                                className="border-animation"
+                                className={` ${isActive(item.to) ? 'text-white' : 'border-animation'}`}
                                 />
-                            ))}
+                               ) 
+                               })}
                         </ul>
                     </div>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
