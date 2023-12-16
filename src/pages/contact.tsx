@@ -14,7 +14,7 @@ const Contact = () => {
     const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
     console.log(watch("email"))
     return(
-        <main className="mt-24 p-20">
+        <main className="mt-[12rem] p-20">
             <div className="max-w-screen-lg mx-auto p-5">
                 <div className="grid grid-cols-1 md:grid-cols-12 border">
                     <div className="bg-gray-900 md:col-span-4 p-10 text-white">
@@ -22,24 +22,23 @@ const Contact = () => {
                             Contact
                         </p>
                         <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
-                            Get In <span className="text-orange-600">Touch</span>
+                            Get In <span className="text-lemon">Touch</span>
                         </h3>
                         <p className="mt-4 leading-7 text-gray-200">
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the
-                            industry's standard dummy text ever since the 1500s.
+                        Do you have any concerns or feedback? Feel free to reach out using the following means. Don't hesitate to give a shout!.
                         </p>
 
                         <div className="flex items-center mt-5">
-                            <img className="w-6 px-1 " src={address} alt='address' />
-                            <span className="text-sm">House #14, Street #12, Darulaman Road, Kabul, Afghanistan.</span>
+                            <img className="w-6 mr-2" src={address} alt='address' />
+                            <span className="text-sm text-gray-200">105 Andover Drive, London, Ontario, Canada</span>
                         </div>
                         <div className="flex items-center mt-5">
-                            <img className="w-6 px-1" src={phone} alt='phone' />
-                            <span className="text-sm">+93 749 99 65 50</span>
+                            <img className="w-6 mr-2" src={phone} alt='phone' />
+                            <span className="text-sm text-gray-200">+16475637235</span>
                         </div>
                         <div className="flex items-center mt-5">
-                            <img className="w-6 px-1" src={time} alt='time' />
-                            <span className="text-sm">24/7</span>
+                            <img className="w-6 mr-2" src={time} alt='time' />
+                            <span className="text-sm text-gray-200">24/7</span>
                         </div>
 
                     </div>
@@ -94,14 +93,12 @@ const Contact = () => {
                                     </label>
                                 </div>
                                 <button
-                                    className="shadow bg-indigo-600 hover:bg-indigo-400 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
+                                    className="shadow bg-lemon hover:bg-white hover:border hover:border-gray-700 hover:text-gray-700 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-6 rounded"
                                     type="submit">
                                     Send Message
                                 </button>
                                 
-                            </div>
-            <a href="https://veilmail.io/e/FkKh7o" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Or click here to reveal our protected email address</a>
-                
+                            </div>    
                         </div>
 
                     </form>
