@@ -2,6 +2,7 @@ import time from '../assets/time.svg';
 import address from '../assets/address.svg';
 import phone from '../assets/phone.svg';
 import { useForm, SubmitHandler } from 'react-hook-form';
+import { useState } from 'react';
 
 interface IForm {
     firstname: string
@@ -10,18 +11,34 @@ interface IForm {
     message: string
 }
 const Contact = () => {
-    const { register, handleSubmit, watch, formState: { errors },} = useForm<IForm>();
-    const onSubmit: SubmitHandler<IForm> = (data) => console.log(data);
+
+    const [isMessageSent, setIsMessageSent] = useState(false);
+    const { 
+        register, 
+        handleSubmit, 
+        watch, 
+        formState: { errors }, 
+        reset
+    } = useForm<IForm>();
+    // side side isn't ready, I would only need to post to API endpoint and let backend handles the email submission
+    const onSubmit: SubmitHandler<IForm> = (data) => {
+        console.log(data);
+        setIsMessageSent(true);
+        // Reset the form after submission
+        reset();
+    }
+    
+
     console.log(watch("email"))
     return(
         <main className="mt-[12rem] p-20">
             <div className="max-w-screen-lg mx-auto p-5">
-                <div className="grid grid-cols-1 md:grid-cols-12 border">
-                    <div className="bg-gray-900 md:col-span-4 p-10 text-white">
-                        <p className="mt-4 text-sm leading-7 font-regular uppercase">
+                <div className="grid grid-cols-1 md:grid-cols-12 border border-gray-100">
+                    <div className="bg-gray-900 text-white md:col-span-4 p-10 ">
+                        <p className="mt-4 text-sm leading-7 font-regular uppercase text-white">
                             Contact
                         </p>
-                        <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight">
+                        <h3 className="text-3xl sm:text-4xl leading-normal font-extrabold tracking-tight text-white">
                             Get In <span className="text-lemon">Touch</span>
                         </h3>
                         <p className="mt-4 leading-7 text-gray-200">
@@ -97,8 +114,13 @@ const Contact = () => {
                                     type="submit">
                                     Send Message
                                 </button>
-                                
+                            
                             </div>    
+                            {isMessageSent && (
+                                <div className="mb-4 text-lemon font-bold dark:text-green-200">
+                                    Message sent successfully!
+                                </div>
+                            )}
                         </div>
 
                     </form>
