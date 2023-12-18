@@ -1,40 +1,61 @@
-import blob from '../assets/blob.svg';
+import { Link } from 'react-router-dom';
+
 
 const About = () => {
   return (
     <main className="mt-[12rem] text-gray-700 ">
-        <section className="pt-16 overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
+        <section className="py-16 overflow-hidden md:pt-0 sm:pt-16 2xl:pt-16">
             <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col lg:flex-row">
-                <div className="grid items-center grid-cols-1 md:grid-cols-2">
+                <div className="items-center ">
                     <div>
-                        <h2 className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">It's 
+                        <h1 className="text-4xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl">It's 
                             <br className="block sm:hidden" /> 
-                            <span className="text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl animate-pulse bg-gradient-to-r from-pink-500 via-green-500 to-violet-500 bg-clip-text text-transparent">Foodzizzles</span>
-                        </h2>
-                        <p className="max-w-lg mt-3 leading-relaxed md:mt-8">
-                        I'm so happy you're here! I'm Azeezah, [links to your books] author and lead recipe developer here at Foodzizzles. I started Foodzizzles with just one goal in mind, making healthy eating delicious and easy.
-                        </p>
-                        <div className="mt-2  text-gray-600 md:mt-8">
-                        <p className="my-2 leading-loose text-xl"> New to Foodzizzles? Start Here!</p>
-
+                            <span className="px-2 text-3xl font-bold leading-tight text-black sm:text-4xl lg:text-5xl animate-pulse bg-gradient-to-r from-pink-500 via-green-500 to-violet-500 bg-clip-text text-transparent">Foodzizzles</span>
+                        </h1>
+                        <div className="grid grid-cols-1 md:grid-cols-2">
+                            <p className="max-w-lg mt-3 leading-relaxed md:mt-8">
+                            Foodzizzles is a culinary recipe content platform established in 2020, boasting a dedicated following of over 1.3 million on Facebook. Our daily posts provide step-by-step guides on preparing delectable dishes from around the world. Our overarching goal is to streamline the culinary experience through a unified solution that connects to e-books, kitchenware, videos, and coaching.
+                            </p>
+                            <div className="relative">
+                                <div className="absolute top-10 right-0 w-2/3 h-96 border-4 border-orange-500"></div>
+                                <img
+                                    src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/business-woman.png"
+                                    alt="Foodzizzles"
+                                    className="w-full h-96 object-contain"
+                                />
+                            </div>
+                        </div>
+                       
+                    </div>    
+                    <div className="mt-2  text-gray-600 md:mt-8">
+                        <h2 className="my-2 leading-loose text-2xl"> New to Foodzizzles? Start Here!</h2>
                         <p className="my-3 leading-normal">Whether it's your first time here or you are looking for some meal inspiration, here are some great places to start.</p>
-                            <ul className="list-disc px-10">
-                                <li>We absolutely love easy dinners around here! Don't miss our favorite 30-minute dinners, nourishing bowl recipes, quick stir-fry recipes, and set-and-forget slow cooker dinners.</li>
-                                <li>Every night could be Taco Tuesday in our house. My husband is from Mexico City and when I need a fast meal, tacos are always at the top of the list. Mexican food is a passion and we love sharing authentic Mexican dishes and Tex-Mex favorites.</li>
-                                <li>When we start the day with a healthy breakfast, we eat better all day long. That's why we love oatmeal, smoothies, and eggs.</li>
-                            </ul>
-                        <p>We believe getting a healthy meal on the table should be easy and stress-free. That's why we share hundreds of easy-to-follow, delicious, and good-for-you recipes. Armed with our recipes, anyone can be a star in the kitchen!
+                        <div className="flex  justify-center gap-8">
+                            <div className="max-w-xs bg-white p-6 rounded-md shadow-md">
+                                <h3 className="text-xl font-semibold mb-4">1. Subscribe to our Newsletter</h3>
+                                <p className="text-gray-600 mb-4">
+                                Stay updated on new recipes, cooking tips, and exclusive offers by subscribing to our newsletter.
+                                </p>
+                                <Link to="/subscribe" className="text-orange-500 hover:underline">Subscribe Now</Link>
+                            </div>
 
-Looking for more meal inspiration? Check out the Recipes page where you can sort recipes by category, dietary preferences, cuisine, and even ingredients.</p>
+                            <div className="max-w-xs bg-white p-6 rounded-md shadow-md">
+                                <h3 className="text-xl font-semibold mb-4">2. Enroll in Our Special Class</h3>
+                                <p className="text-gray-600 mb-4">
+                                Learn how to turn your kitchen into everybody's favorite spot with our special cooking class.
+                                </p>
+                                <Link to="/special-class" className="text-orange-500 hover:underline">Enroll Now</Link>
+                            </div>
+
+                            <div className="max-w-xs bg-white p-6 rounded-md shadow-md">
+                                <h3 className="text-xl font-semibold mb-4">3. Explore Our E-Books</h3>
+                                <p className="text-gray-600 mb-4">
+                                Visit our e-book page and discover the best-selling books to enhance your cooking skills.
+                                </p>
+                                <Link to="/e-books" className="text-orange-500 hover:underline">Explore E-Books</Link>
+                            </div>
                         </div>
                     </div>
-
-                    <div className="relative">
-                        <img className="absolute w-full inset-x-0 bottom-0 -mb-48 -translate-x-1/2 left-1/2" src={blob} alt="" />
-                      
-                        <img className="relative w-full xl:max-w-lg xl:mx-auto 2xl:origin-bottom 2xl:scale-110" src="https://cdn.rareblocks.xyz/collection/celebration/images/team/1/business-woman.png" alt="" />
-                    </div>
-
                 </div>
   
             </div>
@@ -93,91 +114,8 @@ Looking for more meal inspiration? Check out the Recipes page where you can sort
 
             </div>
         </section>
-        <section>
-
-        <div className="flex items-center justify-between h-full w-full absolute z-0">
-            <div className="w-1/3 bg-white dark:bg-gray-900 h-full"></div>
-            <div className="w-4/6 ml-16 bg-gray-100 dark:bg-gray-800 h-full"></div>
-        </div>
-        <div className="xl:px-20 px-8 py-20 2xl:mx-auto 2xl:container relative z-40">
-            <h1 className="text-5xl font-bold xl:block hidden leading-tight text-gray-800 dark:text-white ">
-                What our customers are<br />
-                saying
-            </h1>
-            <h1 className="text-5xl font-bold xl:hidden block leading-tight lg:leading-10 text-gray-800 dark:text-white ">What our customers are saying</h1>
-    
-            <div className="slider">
-                <div className="slide-ana">
-                    <div className="flex">
-                        <div className="mt-14 md:flex">
-                            <div className="relative lg:w-1/2 sm:w-96 xl:h-96 h-80">
-                                <img src="https://i.ibb.co/4g1D9cv/imgslider1.png" alt="image of profile" className="w-full h-full flex-shrink-0 object-fit object-cover shadow-lg rounded" />
-                                <div className="w-32 md:flex hidden items-center justify-center absolute top-0 -mr-16 -mt-14 right-0 h-32 bg-indigo-100 rounded-full">
-                                    <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonial-svg1.svg" alt="commas"/>
-                                </div>
-                            </div>
-                            <div className="md:w-1/3 lg:w-1/3 xl:ml-32 md:ml-20 md:mt-0 mt-4 flex flex-col justify-between">
-                                <div>
-                                    <h1 className="text-2xl font-semibold xl:leading-loose text-gray-800 dark:text-white ">Some of the best work that was done!</h1>
-                                    <p className="text-base font-medium leading-6 mt-4 text-gray-600 dark:text-gray-200  ">Our core values are at the heart of all that we do. They are integrated into our daily work lives and help us to remember our customers always comes first, the last thank you should always comes from us.</p>
-                                </div>
-                                <div className="md:mt-0 mt-8">
-                                    <p className="text-base font-medium leading-4 text-gray-800 dark:text-white ">Anna Smith</p>
-                                    <p className="text-base leading-4 mt-2 mb-4 text-gray-600 dark:text-gray-200  ">Senior Web Designer</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
-            </div>
-    
-            <div className="flex items-center mt-8">
-                <button className="cursor-pointer" id="prev" role="button" aria-label="previous slide">
-                    <img src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonal-svg2.svg" alt="previous" />
-                </button>
-                <button id="next" role="button" aria-label="next slide" className="cursor-pointer ml-2">
-                    <img className="dark:hidden" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonial-svg3.svg" alt="next" />
-                    <img className="transform rotate-180 w-8 hidden dark:block" src="https://tuk-cdn.s3.amazonaws.com/can-uploader/testimonal-svg2.svg" alt="previous" />
-                </button>
-            </div>
-        </div>
-      
-      
-        </section>
         <section className="testimonial py-16">
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-           
-                <ul>
-                    <li>Prioritizing a balanced intake of essential nutrients, including proteins, carbohydrates, fats, vitamins, and minerals, to support overall health and well-being.</li>
-
-                    <li>Focusing on whole and minimally processed foods, such as fruits, vegetables, whole grains, lean proteins, and healthy fats, while minimizing the consumption of highly processed and refined foods.</li>
-
-                    <li>Embracing and preserving culinary traditions and cultural practices related to food preparation, cooking methods, and traditional ingredients.
-                    </li>
-
-                    <li>Considering the environmental impact of food choices, including the sourcing of ingredients, food production methods, and waste reduction, with an emphasis on sustainable and eco-friendly practices.
-                    </li>
-
-                    <li>Making food choices that align with ethical considerations, such as supporting local farmers, fair trade practices, humane treatment of animals, and social responsibility.
-                    </li>
-
-                    <li>Encouraging mindful eating practices, which involve being present and fully engaged in the eating experience, savoring each bite, and paying attention to hunger and satiety cues.
-                    </li>
-
-                    <li>Recognizing that individual nutritional needs may vary based on factors such as age, gender, activity level, and health conditions, and tailoring food choices accordingly.
-                    </li>
-
-                    <li>Embracing a flexible approach to eating that allows for occasional indulgences and treats, promoting a positive relationship with food and avoiding strict, restrictive diets.
-                    </li>
-
-                    <li>Valuing education about nutrition and food systems to make informed and conscious choices, staying abreast of current research and developments in the field.
-                    </li>
-
-                    <li>Prioritizing the role of food in promoting health and preventing illness, recognizing the connection between diet and overall well-being.</li>
-                </ul>
-
-            </div>
+          
         </section>
     </main>
   );
