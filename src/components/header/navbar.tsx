@@ -1,10 +1,18 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
+import { useSpring, animated } from "react-spring"
 import NavigationItem from "../../shared/Navigation";
+import foodzizzles from "../../assets/foodzizzles.png"
 
 const Navbar = () => {
 
     const [isMenuOpen, setMenuOpen] = useState(false);
+    
+    const fadeIn = useSpring({
+        opacity: isMenuOpen ? 1 : 0, 
+        display: isMenuOpen ? "block" : "none"
+    });
+
     const toggleMenu = () => {
         setMenuOpen(!isMenuOpen);
     };
@@ -37,13 +45,15 @@ const Navbar = () => {
                     </ul>
                 </div>
         
-                <div className="max-w-screen-xl h-20 flex flex-wrap items-center justify-between py-4 px-10">
+                <div className="max-w-screen-xl h-20 flex flex-wrap items-center justify-around py-4 px-10">
                     <Link to="/" className="flex items-center space-x-3 rtl:space-x-reverse">
-                        Foodzizzles
+                        <img className="h-14 w-auto object-cover" src={foodzizzles} alt="foodzizzles logo" />
                     </Link>
                    
-                    <div className="seach flex gap-5 bg-stone-100 border border-1 rounded-lg h-8 w-64 md:w-72 lg:w-96 ">
-                        <select id="cuisine-select" className="bg-transparent rounded-lg px-5 outline-0">
+                    <div className="search flex gap-5 bg-stone-100 border border-1 rounded-lg h-8 item w-64 md:w-72 lg:w-96 ">
+                        <select id="cuisine-select" 
+                        className="bg-transparent rounded-lg px-2 outline-0 w-32 h-8 text-sm mb-2 
+                        md:w-40 md:text-base md:mb-0 md:px-5 md:mr-2 md:flex-grow lg:w-64">
                             <optgroup label="All Categories">
                                 <option>All Categories</option>
                             </optgroup>
@@ -115,9 +125,9 @@ const Navbar = () => {
                                 <option>Finnish</option>
                             </optgroup>    
                         </select>
-                        <input className="bg-transparent outline-0" type="search" placeholder="Search" name="search" />   
+                        <input className="bg-transparent outline-0 w-full md:w-auto" type="search" placeholder="Search" name="search" />   
                     </div>
-                    <div className="items-center justify-between hidden w-full lg:flex lg:w-auto lg:order-1" id="navbar-sticky">
+                    <div className="items-center justify-between hidden w-full lg:flex lg:w-auto" id="navbar-sticky">
                         <ul className="flex flex-col justify-items-end p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"> 
                             {navigationItems.map((item) => {
                                        const itemIsActive = isActive(item.to)
@@ -151,13 +161,19 @@ const Navbar = () => {
                       </svg>
                         }              
                         </button>
+                    </div>
+                    <div className="hidden lg:inline-block">
+                        <button className="bg-orange-500 text-white leading-7 w-24 p-1 rounded-lg ">Login</button>
                     </div>         
                 </div>
             </nav>
                 {isMenuOpen && (
-                    <ul className="absolute top-24 p-10 z-50 w-full lg:hidden md:p-0 mt-4 font-medium border border-gray-100 
-                    bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-col md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 
-                    md:dark:bg-gray-900 dark:border-gray-700">
+                    <animated.ul 
+                        className="fixed top-[8rem] p-10 z-50 w-full lg:hidden md:p-0 mt-4 font-medium border border-gray-100 
+                        bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-col md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 
+                        md:dark:bg-gray-900 dark:border-gray-700"
+                        style={fadeIn}
+                    >
                         {navigationItems.map((item) => (
                             <NavigationItem
                             key={item.to}
@@ -167,8 +183,12 @@ const Navbar = () => {
                             className="border-animation"
                             />
                         ))}
-                    </ul>
+                        <div className="my-5 border-t">
+                            <button className="text-lemon-dark leading-7 px-3 hover:text-orange-500">Login</button>
+                        </div>
+                    </animated.ul>
                 )}
+            
         </header> 
     )
 }

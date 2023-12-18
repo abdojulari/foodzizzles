@@ -4,13 +4,13 @@ import {
     useLocation 
 } from "react-router-dom";
 import Layout from "../layouts/layout";
-import Home from "../pages/home";
-import About from "../pages/about";
-import Recipes from "../pages/recipes";
-import Shop from "../pages/shop";
-import Contact from "../pages/contact";
-import Recipe from "../pages/recipe";
-import CookBooks from "../pages/cookBooks";
+import { Home } from "../pages";
+import { About } from "../pages";
+import { Recipes } from "../pages";
+import { Shop } from "../pages";
+import { Contact } from "../pages";
+import { Recipe } from "../pages";
+import { CookBooks } from "../pages";
 
 
 const AppRoutes: React.FC = () => {

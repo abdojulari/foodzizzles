@@ -11,7 +11,8 @@ export default {
       },
       colors: {
         'lemon': '#84BD00',
-        'lemon-200': '#C4D600'
+        'lemon-200': '#C4D600',
+        'lemon-dark': '#509E2F'
       },
       width: {
         '101': '28rem',

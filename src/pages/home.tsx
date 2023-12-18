@@ -1,8 +1,10 @@
+import { SideBar } from "../components"
+
 const Home = () => {
     return(
         <main className="py-20">
             <article className="flex px-20">
-                <aside className="w-1/5 m-5 "> Sidebar</aside>
+                <aside className="w-1/5 m-5 "> <SideBar /> </aside>
                 <section className="flex flex-wrap w-4/5 m-5">
                     <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
                         <div className="grid grid-cols-1 md:grid-cols-3 sm:grid-cols-2 gap-10">
