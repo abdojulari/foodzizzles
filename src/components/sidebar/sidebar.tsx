@@ -25,7 +25,7 @@ const SideBar = () => {
                         <summary className="flex justify-between items-center font-medium cursor-pointer list-none " onClick={() => handleToggle(index)}>
                             { sidebar.title }
                             <span className="transition group-open:rotate-180">
-                            <svg fill="none" height="24" shape-rendering="geometricPrecision" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewBox="0 0 24 24" width="24">
+                            <svg fill="none" height="24" shapeRendering="geometricPrecision" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" viewBox="0 0 24 24" width="24">
                                     {openAccordion === index ? (
                                         <path d="M18 12H6"></path>  // Minus sign
                                     ) : (

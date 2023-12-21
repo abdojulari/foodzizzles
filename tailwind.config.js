@@ -18,7 +18,7 @@ export default {
         '101': '28rem',
       }, 
       backgroundImage: {
-        'recipe': "url('../public/recipeBlob.svg')"
+        'recipe': "url('https://m.media-amazon.com/images/I/715oG1b53NL.jpg')"
       }
     },
   },

@@ -12,7 +12,6 @@ import { Contact } from "../pages";
 import { Recipe } from "../pages";
 import { CookBooks } from "../pages";
 
-
 const AppRoutes: React.FC = () => {
     const location = useLocation();
     const isHomePage = location.pathname === '/';
