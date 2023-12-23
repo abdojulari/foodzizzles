@@ -32,19 +32,20 @@ const Recipe: React.FC = () => {
   if (error) return 'An error has occurred: ' + error.message;
 
   return (
-    <main className="mt-[8rem] bg-gray-100">
+    <main className="mt-[8rem] bg-stone-100">
+      <section></section>
       <section className="flex flex-wrap my-20">
-            <div className="max-w-screen-xl mx-auto px-5 sm:px-10 md:px-16">
+            <div className="max-w-screen-xl mx-auto px-8 sm:px-16 md:px-20">
                 { recipe && (
-                  <div className="flex flex-col md:flex-row p-5">
-                    <div className="md:w-1/2 mb-6 md:mb-0">
+                  <div className="relative flex flex-col md:flex-row p-5">
+                    <div className=" md:w-2/5 mb-6 md:mb-0">
                       <img
-                        className="w-full h-96 object-cover rounded-lg shadow-md"
+                        className="w-full  h-96 object-cover md:absolute md:left-20 md:top-20 md:w-2/5"
                         src={recipe.image}
                         alt={recipe.name}
                       />
                     </div>
-                    <div className="md:w-1/2 md:ml-6">
+                    <div className="md:border-2 md:border-gray-400  md:w-3/5 md:ml-6 md:p-20">
                       <h1 className="text-2xl text-lemon">{recipe.name} | {recipe.cuisine}</h1>
                       <p>{recipe.description}</p>
                     </div>

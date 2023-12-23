@@ -21,8 +21,7 @@ const Home = () => {
         'https://www.americangarden.us/wp-content/uploads/2016/10/Blog-post_barbecue.jpg',
         'https://www.wellplated.com/wp-content/uploads/2017/03/Baked-Fish-and-Chips.jpg',
     ];
-
-    
+   
     const courses = [
         {
           category: 'Baking',
@@ -68,6 +67,11 @@ const Home = () => {
             "price": 19.2
         },
         {
+            "name": "16 Classic Nigerian Recipes For Beginners",
+            "image": "https://img.buzzfeed.com/store-an-image-prod-us-east-1/9xqJ5jzze.png?output-format=jpg&output-format=auto&output-quality=90&crop=150&downsize=800:*",
+            "price": 19.2
+        },
+        {
             "name": "Modern Asian Kitchen",
             "image": "https://images.squarespace-cdn.com/content/v1/614a009b2cb9af680ff625f7/17f197c6-ad9d-42e2-b372-a826c30b2923/A1TFnMo7tPL.jpg",
             "price": 8.12
@@ -85,7 +89,7 @@ const Home = () => {
     ]
 
     return(
-        <main className="py-20">
+        <main className="pt-20">
             <article className="px-20 flex-grow md:flex">
                 <aside className="w-full m-5 md:w-1/5"> <SideBar /> </aside>
                 <section className="flex flex-wrap w-4/5 m-5">
@@ -140,27 +144,36 @@ const Home = () => {
             </article>
             <article>
                 <section className="">
-                    <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
-                        <h3 className="text-4xl mb-10">Best Selling Books</h3>
-                        <p className="leading-7 text-2xl mb-10"><em></em></p>
-                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-                           {books.map((book, index) => (
-                            <BookCard  key={index} name={book.name} image={book.image} price={book.price} />
-                            ))} 
+                    <Fade direction="down" cascade damping={0.1} triggerOnce>
+                        <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto p-5 sm:p-10 md:p-20">
+                            <h3 className="text-4xl mb-10">Best Selling Books</h3>
+                            <p className="flex flex-col leading-7 text-base mb-10 ">
+                                <em>
+                                    Whether you're a seasoned bibliophile or a casual reader, our best-selling books promise an unforgettable escape into realms of creativity, knowledge, and emotion. 
+                                </em>
+                                <span>Indulge your curiosity. Discover the magic within the pages. Welcome to Foodzizzles Book Emporium – where reading is not just a pastime; it's an extraordinary experience. Happy Reading!</span>
+                            </p>
+                            
+                            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+                            {books.map((book, index) => (
+                                <BookCard  key={index} name={book.name} image={book.image} price={book.price} />
+                                ))} 
+                            </div>
                         </div>
-                        
-                        
+                    </Fade>
+                </section>
+                <section >
+                    <div className="max-w-screen-xl mx-auto p-5 sm:p-10 md:p-20 border-t-2 ">
                     </div>
                 </section>
-               
 
             </article>
-            <article>
-                <section className="">
-                <Fade cascade damping={0.1}>
+            <article className="bg-stone-100">
+                <section >
+                <Fade direction="down" cascade damping={0.1} triggerOnce>
                     <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
                         <h3 className="text-4xl mb-10">Courses</h3>
-                        <p className="leading-7 text-2xl mb-10"><em>Are you eager to join a culinary session but unsure where to begin? We offer sessions categorized to suit your preferences.</em></p>
+                        <p className="leading-7 text-lg mb-10"><em>Are you eager to join a culinary session but unsure where to begin? We offer sessions categorized to suit your preferences.</em></p>
                         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-4 gap-8">
                         {courses.map((course, index) => (
                             <CourseCard key={index} {...course} />
@@ -177,7 +190,7 @@ const Home = () => {
                             </div>
                             <div>
                                 <form>
-                                    <input type="text" placeholder="Enter your Email Address" className="border-b py-3 w-full outline-0" />
+                                    <input type="text" placeholder="Enter your Email Address" className="border-b py-3 w-full outline-0 bg-transparent" />
                                     <button className="my-5 text-base float-right hover:text-orange-500">Subcribe</button>
                                 </form>
                             </div>
