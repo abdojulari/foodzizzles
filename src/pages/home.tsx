@@ -61,28 +61,33 @@ const Home = () => {
     ]
 
     const books =[
-        {
-            "name": "16 Classic Nigerian Recipes For Beginners",
+        {  
+            "id": 1,
+            "title": "16 Classic Nigerian Recipes For Beginners",
             "image": "https://img.buzzfeed.com/store-an-image-prod-us-east-1/9xqJ5jzze.png?output-format=jpg&output-format=auto&output-quality=90&crop=150&downsize=800:*",
             "price": 19.2
         },
         {
-            "name": "16 Classic Nigerian Recipes For Beginners",
+            "id": 2,
+            "title": "16 Classic Nigerian Recipes For Beginners",
             "image": "https://img.buzzfeed.com/store-an-image-prod-us-east-1/9xqJ5jzze.png?output-format=jpg&output-format=auto&output-quality=90&crop=150&downsize=800:*",
             "price": 19.2
         },
         {
-            "name": "Modern Asian Kitchen",
+            "id": 3,
+            "title": "Modern Asian Kitchen",
             "image": "https://images.squarespace-cdn.com/content/v1/614a009b2cb9af680ff625f7/17f197c6-ad9d-42e2-b372-a826c30b2923/A1TFnMo7tPL.jpg",
             "price": 8.12
         },
         {
-            "name": "The Smoothie Recipe secret for weight loss",
+            "id": 4,
+            "title": "The Smoothie Recipe secret for weight loss",
             "image": "https://i.ebayimg.com/images/g/bwgAAOSwWQBiDPDw/s-l1200.jpg",
             "price": 7.80
         },
         {
-            "name": "Top 10 Best Cupcake",
+            "id": 5,
+            "title": "Top 10 Best Cupcake",
             "image": "https://www.browneyedbaker.com/wp-content/uploads/2023/06/10-best-cupcakes.jpg",
             "price": 10.79
         },
@@ -156,7 +161,7 @@ const Home = () => {
                             
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
                             {books.map((book, index) => (
-                                <BookCard  key={index} name={book.name} image={book.image} price={book.price} />
+                                <BookCard  key={index} title={book.title} image={book.image} price={book.price} id={book.id} />
                                 ))} 
                             </div>
                         </div>
@@ -182,11 +187,11 @@ const Home = () => {
                     </div>
                 </Fade>
                 </section>
-                <section>
+                <section id="subscribeSection">
                     <div className="flex flex-col items-center justify-center max-w-screen-xl mx-auto p-5 sm:p-10 md:p-16">
                         <div className="grid grid-cols-1 md:grid-cols-2">
                             <div>
-                                <span className="text-5xl">Subscribe for the Exclusive Updates!</span>
+                                <span className="text-5xl font-bold">Subscribe for the Exclusive Updates!</span>
                             </div>
                             <div>
                                 <form>

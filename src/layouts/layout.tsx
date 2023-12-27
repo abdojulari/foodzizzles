@@ -1,6 +1,6 @@
 import React,  { ReactNode } from 'react';
 import { Banner }  from "../components";
-import { Navbar } from "../components";
+import { Header } from "../components";
 import { Footer } from '../components';
 
 interface LayoutProps {
@@ -9,10 +9,16 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, showBanner = true }) => {
+    
+    const handleSubscribeClick = () => {
+        // Find the section element and scroll to it
+        const sectionElement = document.getElementById('subscribeSection');
+        sectionElement?.scrollIntoView({ behavior: 'smooth' });
+    };
     return (
         <section className="flex flex-col">
-            <Navbar />
-            { showBanner &&  <Banner /> }
+            <Header cart={[]} />
+            { showBanner &&  <Banner onSubscribeClick={handleSubscribeClick}  /> }
             { children }
             <Footer />
         </section >

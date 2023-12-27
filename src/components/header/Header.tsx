@@ -1,10 +1,13 @@
 import { useEffect, useState } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useSpring, animated } from "react-spring"
 import NavigationItem from "../../shared/Navigation";
-import foodzizzles from "../../assets/foodzizzles.png"
+import foodzizzles from "../../assets/foodzizzles.png";
+import { useSelector } from "react-redux";
+import { CartState } from "../../utils/cart";
 
-const Header = () => {
+
+const Header: React.FC<CartState> = () => {
     const [isScrolled, setScrolled] = useState(false);
     const [isMenuOpen, setMenuOpen] = useState(false);
     
@@ -28,7 +31,9 @@ const Header = () => {
         { to: "/contact", label: "Contact" },
     ];
 
+    const navigate = useNavigate();
     const location = useLocation();
+    const isHomePage = location.pathname === '/';
     const isActive = (targetPath: string): boolean => (location.pathname === targetPath);
 
     const handleScroll = () => {
@@ -41,8 +46,16 @@ const Header = () => {
         return () => {
           window.removeEventListener("scroll", handleScroll);
         };
-    }, []);
-      
+    }, []); 
+
+
+    const cart = useSelector((state: CartState) => state.cart)
+
+    const getTotalItems: () => number = () => {
+        return cart.reduce((total, item) => total + item.quantity, 0);
+    }
+    
+
     return (
         <header className="font-montserrat text-gray-700 leading-normal">
             <nav className={`flex flex-col  ${isScrolled ? 'bg-white shadow-2xl' : ''} dark:bg-gray-900 fixed w-full z-20 top-0 start-0  shadow-gray-400/20`}>
@@ -58,11 +71,9 @@ const Header = () => {
                 </div>
         
                 <div className="max-w-screen-xl h-20 flex  justify-between py-4 px-10">
-                    <Link to="/" className="w-48 bg-white px-4 flex items-center space-x-3 rtl:space-x-reverse">
+                    <Link to="/" className=" bg-white px-4 flex items-center space-x-3 rtl:space-x-reverse md:w-48">
                         <img className="h-16 w-auto object-cover" src={foodzizzles} alt="foodzizzles logo" />
                     </Link>
-                   
-                  
                     <div className="items-center justify-end px-10 hidden w-full lg:flex " id="navbar-sticky">
                         <ul className="flex flex-col ml-autojustify-items-end p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0  dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"> 
                             {navigationItems.map((item) => {
@@ -72,8 +83,14 @@ const Header = () => {
                                         key={item.to}
                                         to={item.to}
                                         label={item.label}
-                                        className={` ${itemIsActive  ? 'text-white' : 'border-animation'}`}
-                                        textColor={isScrolled ? 'text-gray-700' : 'text-white'}
+                                        className={`${itemIsActive  ? 'text-white' : 'border-animation'}`}
+                                        textColor={
+                                            isHomePage && isScrolled
+                                              ? 'text-gray-700'
+                                              : isHomePage
+                                              ? 'text-white'
+                                              : 'text-gray-700'
+                                          }
                                     />
                                 )
                             })}
@@ -98,33 +115,42 @@ const Header = () => {
                         }              
                         </button>
                     </div>
-                    <div className="hidden lg:inline-block">
-                        <button className="bg-orange-500 text-white leading-7 w-24 p-1 rounded-lg ">Login</button>
+                    <div className="hidden lg:inline-block lg:flex ">
+                        <div className="flex relative cursor" onClick={() => {
+                                if (getTotalItems() > 0) {
+                                    navigate('/cart');
+                                }
+                            }}>
+                            <img className="w-8" src="https://www.svgrepo.com/download/34974/shopping-cart.svg" />
+                            <span className="absolute -right-2 top-2 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">
+                                { getTotalItems() || 0}
+                            </span> 
+                        </div>
+                        <button className="bg-stone-300 text-gray-900 leading-7 w-24 p-1 rounded-lg ">Login</button>
                     </div>         
                 </div>
             </nav>
-                {isMenuOpen && (
-                    <animated.ul 
-                        className="fixed top-[8rem] p-10 z-50 w-full lg:hidden md:p-0 mt-4 font-medium border border-gray-100 
-                        bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-col md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 
-                        md:dark:bg-gray-900 dark:border-gray-700"
-                        style={fadeIn}
-                    >
-                        {navigationItems.map((item) => (
-                            <NavigationItem
-                            key={item.to}
-                            to={item.to}
-                            label={item.label}
-                            onClick={closeMenu}
-                            className="border-animation"
-                            />
-                        ))}
-                        <div className="my-5 border-t">
-                            <button className="text-lemon-dark leading-7 px-3 hover:text-orange-500">Login</button>
-                        </div>
-                    </animated.ul>
-                )}
-            
+            {isMenuOpen && (
+                <animated.ul 
+                    className="fixed top-[8rem] p-10 z-50 w-full lg:hidden md:p-0 mt-4 font-medium border border-gray-100 
+                    bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-col md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 
+                    md:dark:bg-gray-900 dark:border-gray-700"
+                    style={fadeIn}
+                >
+                    {navigationItems.map((item) => (
+                        <NavigationItem
+                        key={item.to}
+                        to={item.to}
+                        label={item.label}
+                        onClick={closeMenu}
+                        className="border-animation"
+                        />
+                    ))}
+                    <div className="my-5 border-t">
+                        <button className="text-lemon-dark leading-7 px-3 hover:text-orange-500">Login</button>
+                    </div>
+                </animated.ul>
+            )}
         </header> 
     )
 }

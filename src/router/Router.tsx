@@ -11,6 +11,7 @@ import { Shop } from "../pages";
 import { Contact } from "../pages";
 import { Recipe } from "../pages";
 import { CookBooks } from "../pages";
+import Cart from "../pages/Cart";
 
 const AppRoutes: React.FC = () => {
     const location = useLocation();
@@ -26,6 +27,7 @@ const AppRoutes: React.FC = () => {
             <Route path="/cookbooks" element={<CookBooks />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/recipe/:id" element={<Recipe />} />
+            <Route path="/cart" element={<Cart />} />
         </Routes>
         </Layout>
     );
