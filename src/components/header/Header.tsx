@@ -5,6 +5,8 @@ import NavigationItem from "../../shared/Navigation";
 import foodzizzles from "../../assets/foodzizzles.png";
 import { useSelector } from "react-redux";
 import { CartState } from "../../utils/cart";
+import Dropdown from "../../shared/DropDown";
+import cartIcon from '../../assets/cart.gif'
 
 
 const Header: React.FC<CartState> = () => {
@@ -58,7 +60,7 @@ const Header: React.FC<CartState> = () => {
 
     return (
         <header className="font-montserrat text-gray-700 leading-normal">
-            <nav className={`flex flex-col  ${isScrolled ? 'bg-white shadow-2xl' : ''} dark:bg-gray-900 fixed w-full z-20 top-0 start-0  shadow-gray-400/20`}>
+            <nav className={`flex flex-col  ${isScrolled ? 'bg-white ' : ''} shadow-2xl dark:bg-gray-900 fixed w-full z-20 top-0 start-0  shadow-gray-400/20`}>
                 <div className="top-nav h-16 bg-gray-900 text-white px-10 flex items-center">
                     <ul className="nav-bar-item flex flex-row gap-8 items-center">
                         <li className="nav-link hover:text-lemon">
@@ -70,7 +72,7 @@ const Header: React.FC<CartState> = () => {
                     </ul>
                 </div>
         
-                <div className="max-w-screen-xl h-20 flex  justify-between py-4 px-10">
+                <div className=" h-20 flex  justify-between py-4 px-10">
                     <Link to="/" className=" bg-white px-4 flex items-center space-x-3 rtl:space-x-reverse md:w-48">
                         <img className="h-16 w-auto object-cover" src={foodzizzles} alt="foodzizzles logo" />
                     </Link>
@@ -86,15 +88,34 @@ const Header: React.FC<CartState> = () => {
                                         className={`${itemIsActive  ? 'text-white' : 'border-animation'}`}
                                         textColor={
                                             isHomePage && isScrolled
-                                              ? 'text-gray-700'
+                                              ? 'text-gray-600'
                                               : isHomePage
                                               ? 'text-white'
-                                              : 'text-gray-700'
+                                              : 'text-gray-600'
                                           }
                                     />
                                 )
                             })}
                         </ul>
+                        <div className="hidden lg:inline-block lg:flex space-x-4 items-center pl-4">
+                            <Dropdown isScrolled={isScrolled} isHomePage={isHomePage} />
+                            <button className="flex items-center"
+                                onClick={() => {
+                                    if (getTotalItems() > 0) {
+                                        navigate('/cart');
+                                    }
+                                }}
+                            >
+                                <div className="flex relative mx-2 " >
+                                    <img className="h-10" src={cartIcon} />
+                                    <span className="absolute -right-2 top-2 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">
+                                        { getTotalItems() || 0} 
+                                    </span>         
+                                </div>
+                                <span className="font-bold mx-2 text-white">Cart</span>
+                            </button>
+                            
+                        </div>   
                     </div>
                     <div className="flex md:order-2 space-x-3 md:space-x-0 rtl:space-x-reverse">
                         <button data-collapse-toggle="navbar-sticky" type="button" 
@@ -115,19 +136,7 @@ const Header: React.FC<CartState> = () => {
                         }              
                         </button>
                     </div>
-                    <div className="hidden lg:inline-block lg:flex ">
-                        <div className="flex relative cursor" onClick={() => {
-                                if (getTotalItems() > 0) {
-                                    navigate('/cart');
-                                }
-                            }}>
-                            <img className="w-8" src="https://www.svgrepo.com/download/34974/shopping-cart.svg" />
-                            <span className="absolute -right-2 top-2 rounded-full bg-red-600 w-4 h-4 top right p-0 m-0 text-white font-mono text-sm  leading-tight text-center">
-                                { getTotalItems() || 0}
-                            </span> 
-                        </div>
-                        <button className="bg-stone-300 text-gray-900 leading-7 w-24 p-1 rounded-lg ">Login</button>
-                    </div>         
+                          
                 </div>
             </nav>
             {isMenuOpen && (
