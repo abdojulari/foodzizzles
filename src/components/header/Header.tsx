@@ -6,7 +6,7 @@ import foodzizzles from "../../assets/foodzizzles.png";
 import { useSelector } from "react-redux";
 import { CartState } from "../../utils/cart";
 import Dropdown from "../../shared/DropDown";
-import cartIcon from '../../assets/cart.gif'
+import cartIcon from '../../assets/cart.png'
 
 
 const Header: React.FC<CartState> = () => {

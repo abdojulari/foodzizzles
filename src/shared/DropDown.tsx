@@ -67,7 +67,7 @@ const Dropdown: React.FC<Props> = ({ isScrolled, isHomePage }) => {
             {isDropdownOpen && (
                 <div className="hs-dropdown-menu absolute mt-1 w-48 bg-white shadow-md rounded-lg p-2 dark:bg-gray-800 dark:border dark:border-gray-700 dark:divide-gray-700" >
                     <a
-                        className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
+                        className="bg-orange-300 flex items-center justify-center gap-x-3.5 my-2 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                         href="#"
                     >
                         Login
@@ -76,13 +76,13 @@ const Dropdown: React.FC<Props> = ({ isScrolled, isHomePage }) => {
                         className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                         href="#"
                     >
-                        Your Account
+                        Create an Account
                     </a>
                     <a
                         className="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:ring-2 focus:ring-blue-500 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-300"
                         href="#"
                     >
-                        Team Account
+                        Forgot Password
                     </a>
                 </div>
             )}
